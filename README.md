@@ -12,7 +12,7 @@ This project also implemented cryptographic authentication.
 4. [Performance](#Test)
 5. [Other Info](#Other Info)
 
-<a name="Description"></a>·
+<a name="Description"></a>
 
 I. Description
 ----
@@ -45,8 +45,11 @@ I. Description
 
 <a name="How to Use"></a>
 
+
+
 II. How to Use
 ----
+
 #### Use following commands  and run the program
 
 Note:
@@ -328,6 +331,8 @@ It's probably because the computation time period of hashing and SHA-256 is not 
   The data in this project are stored in Dictionary or Lists. But this can not support large data and has some security problems. But if we can use Oracle or MySQL database to store them, problem can be solved. Besides, these data are cached in memory  and can be erased when the server restart. But the database can also permanently store them.  
 
 - The performance test in large data can be made. For example, we can encrypt tweets with a very long content and then take the performance test. 
+
+
 
 <a name="Other Info"></a>
 
