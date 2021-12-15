@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TwitterSimulator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+<script type="text/javascript" src="./js/System.debug.js"></script>
+<script type="text/javascript" src="./js/System.IO.debug.js"></script>
+<script type="text/javascript" src="./js/System.Text.debug.js"></script>
+<script type="text/javascript" src="./js/System.Convert.debug.js"></script>
+<script type="text/javascript" src="./js/System.BitConverter.debug.js"></script>
+<script type="text/javascript" src="./js/System.IO.BinaryReader.debug.js"></script>
+<script type="text/javascript" src="./js/System.BigInt.debug.js"></script>
+<script type="text/javascript" src="./js/System.Security.Cryptography.SHA1.debug.js"></script>
+<script type="text/javascript" src="./js/System.Security.Cryptography.debug.js"></script>
+<script type="text/javascript" src="./js/System.Security.Cryptography.RSA.debug.js"></script>
+<script type="text/javascript" src="./js/core.js"></script>
+<script type="text/javascript" src="./js/sha256.js"></script>
+<script type="text/javascript" src="./js/hmac.js"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+
+<link href="css/style.css"  rel="stylesheet" type="text/css" media="all" />
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+<!-- //Custom Theme files -->
+</head>
+<!-- <body onload = "loginload()"> -->
+<body onload = "loginload()">
+	<!-- main -->
+	<h1>TwitterSimulator</h1>
+	<div class="main" id = "main" style="height: auto;">
+		<div class="newMain" id = "loginFace" style= "height: 600px;">
+			<div class="newMain2" id="regisDiv" style = "top:7% ;margin-left:10%;">
+				<!-- <h1>Login</h1> -->
+				<div class="login-form" style="margin: auto;width: 100%;"> 
+					<h2>Register</h2> 
+					<div class="agileits-top">
+						<form action="#" method="post">
+							<div class="styled-input">
+								<input type="text" id="runame" name="fname" required=""/>
+								<label>User Name</label>
+								<span></span>
+							</div>
+							<div class="styled-input">
+								<input type="password" id="rpass" name="pwd" required=""> 
+								<label>Password</label>
+								<span></span>
+							</div> 
+							<div class="styled-input">
+								<input type="password" id="repass" name="repwd" required=""> 
+								<label>Reenter Password</label>
+								<span></span>
+							</div> 
+							<!-- <div class="wthree-text"> 
+								<ul> 
+									<li>
+										<input type="checkbox" id="brand" value="">
+										<label for="brand"><span></span> Remember me ?</label>  
+									</li>
+									<li> <a href="#">Forgot password?</a> </li>
+								</ul>
+								<div class="clear"> </div>
+							</div>   -->
+						</form>
+					</div>
+					<div class="agileits-bottom">
+						<!-- <form action="#" method="post"> -->
+							<input type="submit" name="action" id = "submitbutton1" value="Register" onclick="register()">
+						<!-- </form> -->
+					</div>	
+				</div>	
+			</div>
+
+			<div class="newMain2" id="loginDiv" style = "top:7% ;margin-left:50%;">
+				<!-- <h1>Login</h1> -->
+				<div class="login-form" style = "margin: auto;width: 100%;"> 
+					<h2>Login</h2> 
+					<div class="agileits-top">
+						<form action="#" method="post">
+							<div class="styled-input">
+								<input type="text" id="luname" name="fname" required=""/>
+								<label>User Name</label>
+								<span></span>
+							</div>
+							<div class="styled-input">
+								<input type="password" id="lpass" name="pwd" required=""> 
+								<label>Password</label>
+								<span></span>
+							</div> 
+							<!-- <div class="wthree-text"> 
+								<ul> 
+									<li>
+										<input type="checkbox" id="brand" value="">
+										<label for="brand"><span></span> Remember me ?</label>  
+									</li>
+									<li> <a href="#">Forgot password?</a> </li>
+								</ul>
+								<div class="clear"> </div>
+							</div>   -->
+						</form>
+					</div>
+					<div class="agileits-bottom">
+						<!-- <form action="#" method="post"> -->
+							<input type="submit"  id = "submitbutton2" value="Sign In" onclick="login()">
+						<!-- </form> -->
+					</div>	
+				</div>	
+			</div>
+		</div>
+
+		<div class="newMain" id="userFace" style = "height: 1100px;">
+				<div class="newMain2" style = "top:0% ;left:0%">
+					<div class="login-form2"> 
+						<div id = "divtweet">
+							<h3>Tweet:</h3>
+							<div class="styled-input2">
+								<input type="text" id="tweet" name="tweet" required=""/>
+								<label>Contents</label>
+								<span></span>
+							</div>
+							<div class="user-bottom" style = "margin-left: 40%;">
+									<input type="submit"  name="tweet" id = "submitbutton2" value="Tweet" onclick="tweet()">
+							</div>	
+						</div>
+					</div>
+					<div class="login-form2"> 
+						<div id = "divfollower">
+							<h3>Subscribe:</h3>
+							<div class="styled-input2">
+								<input type="text" id="follower" name="follower" required=""/>
+								<label>Name</label>
+								<span></span>
+							</div>
+							<div class="user-bottom" style = "margin-left: 35%;">
+								<input type="submit" name="follow" id = "submitbutton2" value="Subscribe" onclick="follow()">
+							</div>	
+						</div>
+					</div>
+				</div>
+
+				<div class="newMain2" style = "top:0%;left:30%">
+					<div class="login-form2"> 
+						<div id = "GetTweets">
+							<h3>GetTweets:</h3>
+							<textarea id="gettweets" name="gettweets" rows="10" cols="50" disabled style="height: 70%; width:98%;border:0;border-radius:5px;background-color:rgba(241,241,241,.98);font-family:'Microsoft YaHei';font-weight: bold;"></textarea>
+							<div id ="dtweets">
+								<div class="user-bottom" style = "margin-left: 35%;margin-top: 10%;">
+									<input type="submit" value="GetTweets" id = "submitbutton2" name="gettweets" onclick="gettweets()">
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="newMain2" style = "top:0%; right:0%">
+					<div class="login-form2">
+						<div id = "GetHashTags">
+							<h3>TweetsTag:</h3>
+							<textarea id="gethashtags" name="gethashtags" rows="10" cols="50" disabled style="height: 70%;width:98%;border:0;border-radius:5px;background-color:rgba(241,241,241,.98);font-family:'Microsoft YaHei';font-weight: bold;"></textarea><br>
+							<h4>Search tag</h4>
+							<div class="styled-input2">
+								<input type="text" id="hashtag" name="hashtag" required=""/>
+								<label>Tags</label>
+								<span></span>
+							</div>
+							<div class="user-bottom" style = "margin-left: 35%;">
+								<input type="submit" id = "submitbutton2" value="GetHashTags" name="gethashtags" onclick="gethashtags()">
+							</div>	
+						</div>
+					</div>
+				</div>
+				<div class="newMain2" style = "top:35%; left:30% ;">
+					<div class="login-form2" style="margin-top: 0px;padding-top: 0px;">
+						<div id = "GetMentions">
+							<h3>GetMentions:</h3>
+							<textarea id="getmention" name="getmentions" rows="10" cols="50" disabled style="height: 50%;width:98%;border:0;border-radius:5px;background-color:rgba(241,241,241,.98);font-family:'Microsoft YaHei';font-weight: bold;"></textarea>
+							<div class="user-bottom" style = "margin-left: 35%;margin-top: 10%;">
+								<input type="submit" id = "submitbutton2" value="GetMentions" name="getmentions" onclick="getmentions()">
+							</div>	
+						</div>	
+					</div>
+				</div>
+					
+				<div class="newMain2" style = "width:95% ;top:65%; left:5%">
+					<div class="user-bottom" style = "margin-left: 34%;margin-top: 0%; ">
+						<input style = "width:20%;height: 2em; font-size: large;" type="submit" value = "Logout" name="action" id="submitbutton2" onclick="logout()">
+					</div>	
+					<div class="login-form2" style = "padding-top: 0;">
+						<div id = "Logs">
+							<h3 id="usrname">Welcome: </h3>
+							<textarea id="Log" name="Log" rows="10" cols="50" disabled style="height: 50%;width:98% ;border:0;border-radius:5px;background-color:rgba(241,241,241,.98);font-family:'Microsoft YaHei';font-weight: bold;"></textarea>
+						</div>	
+					</div>
+				</div>
+		</div>
+		
+	</div>	
+	<div class="copyright">
+		<p>@2021.12 DOSP
+			<!-- <a href = "yuyangbo@ufl.edu" target="_blank">TwitterClient</a> -->
+			<a target="_blank">TwitterClient</a>
+		</p>
+	</div>
+</body>
+<script type="text/javascript">
+	var username = "yyb"
+	var publicKey = ""
+	var secretKeyForSign = ""
+	function loginload(){
+		document.getElementById("userFace").style.display="none";
+		document.getElementById("loginFace").style.display="block";
+		document.getElementById("regisDiv").style.display="inline";
+		document.getElementById("loginDiv").style.display="inline";
+		clearinput();
+	}
+	function userload(){
+		document.getElementById("userFace").style.display="block";
+		document.getElementById("regisDiv").style.display="none";
+		document.getElementById("loginDiv").style.display="none";
+		document.getElementById("loginFace").style.display="none";
+		document.getElementById("usrname").innerHTML = "Welcome: "+username;
+		document.getElementById("main").setAttribute("style","height: 600px ; !important");
+		// document.getElementById("usrname").append(username);
+		clearinput();
+	}
+	function clearinput(){
+		var elements = document.getElementsByTagName("input");
+		for (var ii=0; ii < elements.length; ii++) {
+			if(elements[ii].id == "submitbutton1" || elements[ii].id == "submitbutton2")
+			continue;
+			elements[ii].value = "";
+		}   
+		elements = document.getElementsByTagName("textarea");
+		for (var ii=0; ii < elements.length; ii++) {
+			elements[ii].value = "";
+		}
+	}
+	function register(){
+		// console.log("register");
+		var url = "http://127.0.0.1:7777/register";
+		var uname = document.getElementById("runame").value;
+		var pwd = document.getElementById("rpass").value;
+		var repwd = document.getElementById("repass").value;
+		if(pwd != repwd){
+			alert("password missmatch")
+			clearinput();
+		}
+		else{
+			var data = JSON.stringify({'Name':uname,"Password":pwd});
+			clearinput();
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: data,
+				dataType: "json",
+				success: function(data){
+					if(data.status == -1){
+						
+					}else{
+						// alert(data.Comment);
+					}
+					alert(data.alerts);
+					
+				}
+			});     
+		}
+		
+	}
+
+	function login(){
+		// alert("login");
+		var uname = document.getElementById("luname").value;
+		var pwd = document.getElementById("lpass").value;
+		var url = "http://127.0.0.1:7777/getPublic/"+uname;
+		username = uname
+		clearinput();
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType: "json",
+			success: function(data){
+				if(data.status <=-1){
+					alert(data.alerts);
+				}else{
+					publicKey = data.Content[0]
+					secretKeyForSign = data.Content[1]
+					var rsa = new System.Security.Cryptography.RSACryptoServiceProvider(2048);
+					rsa.FromXmlString(publicKey);
+					var rsaParamsPublic = rsa.ExportParameters(false);
+					var timestamp = new Date().getTime()
+					var passWithTime = pwd + timestamp.toString()
+					console.log(passWithTime);
+					var decryptedBytes = System.Text.Encoding.UTF8.GetBytes(passWithTime);
+					rsa.ImportParameters(rsaParamsPublic);
+					var encryptedBytes = rsa.Encrypt(decryptedBytes,true);
+					var encryptedString = System.Convert.ToBase64String(encryptedBytes);
+					// console.log(encryptedString);
+					loginWithKey(uname,encryptedString);
+					// startWebSocket();                    
+				}
+			}
+		});
+		// console.log(username)
+	}
+	function loginWithKey(uname,pwd){
+		var url = "http://127.0.0.1:7777/login";
+		var hash = CryptoJS.HmacSHA256(username, secretKeyForSign);
+		var hmacName = hash.toString(CryptoJS.enc.Base64);
+		var data = JSON.stringify({'Name':uname,"Password":pwd,"HMACname":hmacName});
+		username = uname
+		clearinput();
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: data,
+			dataType: "json",
+			success: function(data){
+				if(data.status <=-1){
+					alert(data.alerts);
+				}else{
+					// alert(messageJson);
+					userload();
+					startWebSocket();  
+					writeToScreen(username+" CONNECTED To Server");                  
+				}
+			}
+		});
+		// console.log(username)
+	}
+
+	function logout(){
+		var url = "http://127.0.0.1:7777/logout";
+		var hash = CryptoJS.HmacSHA256(username, secretKeyForSign);
+		var hmacName = hash.toString(CryptoJS.enc.Base64);
+		var data = JSON.stringify({'Name':username,"HMACname":hmacName});
+		clearinput();
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: data,
+			dataType: "json",
+			success: function(data){
+				if(data.status == -1){
+					// alert(data.Comment); 
+				}else{
+
+					
+					// alert(data.Comment); 
+				}
+				websocket.close();
+				loginload();
+				clearinput();
+				username = "";
+			}
+		});
+	}
+
+	function tweet(){
+		var url = "http://127.0.0.1:7777/newtweet";
+		var hash = CryptoJS.HmacSHA256(username, secretKeyForSign);
+		var hmacName = hash.toString(CryptoJS.enc.Base64);
+		var tweett = document.getElementById("tweet").value;
+		var data = JSON.stringify({'Name':username,'TweetContent':tweett,"HMACname":hmacName});
+		// alert("tweet "+data+" begin");
+		clearinput();
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: data,
+			dataType: "json",
+			success: function(data){
+				
+				if(data.status <= 0 ){
+					alert(data.alerts);
+					loginload();
+				}
+				else{
+					alert(data.alerts);
+						// loginload();
+				}
+					// alert(data.Comment);
+			   
+				
+			}
+		});
+	}
+	function follow(){
+		// alert("follow");
+		var url = "http://127.0.0.1:7777/follow";
+		var following = document.getElementById("follower").value;
+		var hash = CryptoJS.HmacSHA256(username, secretKeyForSign);
+		var hmacName = hash.toString(CryptoJS.enc.Base64);
+		var data = JSON.stringify({'Follower':username,"Subscriber":following,"HMACname":hmacName});
+		clearinput();
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: data,
+			dataType: "json", 
+			success: function(data){
+				alert(data.alerts);
+				if(data.status < 0){
+					loginload();
+					// alert(data.Comment);  
+				}else{
+					// username = uname;
+					// alert(data.Comment); 
+				}
+				
+			}
+		});
+	}
+	function gethashtags(){
+		var hashtag = document.getElementById("hashtag").value;
+		var hash = CryptoJS.HmacSHA256(username, secretKeyForSign);
+		var hmacName = hash.toString(CryptoJS.enc.Base64);
+		var url = "http://127.0.0.1:7777/gethashtags/"+username+"/"+hashtag+"/"+hmacName;
+		clearinput();
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType: "json",
+			success: function(data){
+				
+				if(data.status < 0){
+					alert(data.alert);
+					loginload();
+					// alert(data.Comment); 
+				}else{
+					// alert(data.Comment); 
+					var text = "";
+					for (i=0;i<data.Content.length;i++){
+						text += data.Content[i]+"\n"
+					}
+					// alert(text);
+					document.getElementById("gethashtags").value = text
+				}
+				
+				
+			}
+		});
+	}
+	function getmentions(){
+		var hash = CryptoJS.HmacSHA256(username, secretKeyForSign);
+		var hmacName = hash.toString(CryptoJS.enc.Base64);
+		var url = "http://127.0.0.1:7777/getmentions/"+username+"/"+hmacName;
+		clearinput();
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType: "json",
+			success: function(data){
+				if(data.status < 0){
+					alert(data.alerts);
+					loginload();
+					// alert(data.Comment); 
+				}else{
+					alert(data.alerts); 
+					var text = "";
+					for (i=0;i<data.Content.length;i++){
+						text += data.Content[i]+"\n"
+					}
+					document.getElementById("getmention").value = text
+				}
+				
+				
+			}
+		});
+	}
+	function gettweets(){
+		var hash = CryptoJS.HmacSHA256(username, secretKeyForSign);
+		var hmacName = hash.toString(CryptoJS.enc.Base64);
+		var url = "http://127.0.0.1:7777/gettweets/"+username+"/"+hmacName;;
+		clearinput();
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType: "json",
+			success: function(data){
+				if(data.status < 0){
+					alert(data.status);
+					loginload();
+					// alert(data.Comment); 
+				}else{
+					// alert(data.status);
+					// alert(data.Content[0]); 
+					var text = "";
+
+					for (i=0;i<data.Content.length;i++){
+						text += data.Content[i]+"\n";
+						
+					}
+					// alert(text); 
+					document.getElementById("gettweets").value = text
+				}
+				
+				
+			}
+		});
+	}
+	var output;
+	var ReceiveMessage = {
+			types: "login",
+			content: username,
+		}
+		
+	
+
+	function startWebSocket(){
+		var wsUri = "ws://localhost:7777/websocket";
+		websocket = new WebSocket(wsUri);
+		output = document.getElementById("output");
+		websocket.onopen = function(evt) { onOpen(evt) };
+		websocket.onclose = function(evt) { onClose(evt) };
+		websocket.onmessage = function(evt) { onMessage(evt) };
+		websocket.onerror = function(evt) { onError(evt) };
+	}
+	function onOpen(evt)
+	{
+		// doSend(evt);
+		// var mess ="{\"types\":\"login\",\"content\":\"yyb\"}"
+		ReceiveMessage.content = username
+		var messageJson = JSON.stringify(ReceiveMessage)
+		doSend(messageJson);
+		// doSend(mess);
+	}
+
+	function onClose(evt)
+	{
+		// writeToScreen("DISCONNECTED to the Server");
+		alert("DISCONNECTED to the Server");
+	}
+
+	function onMessage(evt)
+	{
+		document.getElementById("Log").value = evt.data;
+	
+	}
+
+	function onError(evt)
+	{
+		document.getElementById("Log").value = "ERROR: "+evt.data;
+	}
+
+	function doSend(message)
+	{
+		// writeToScreen("SENT: " + message);
+		console.log("sending"+message) ;
+		websocket.send(message);
+	}
+
+	function writeToScreen(message)
+	{
+		var pre = document.createElement("p");
+		pre.style.wordWrap = "break-word";
+		pre.innerHTML = message;
+		output.appendChild(pre);
+	}
+	// application code here!
+
+</script>
+</body>
+</html>
+</html>

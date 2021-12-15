@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TwitterWeb", "TwitterWeb.fsproj", "{87DBCE37-7D12-4BA6-84B0-81180FC9751C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87DBCE37-7D12-4BA6-84B0-81180FC9751C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87DBCE37-7D12-4BA6-84B0-81180FC9751C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87DBCE37-7D12-4BA6-84B0-81180FC9751C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87DBCE37-7D12-4BA6-84B0-81180FC9751C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
