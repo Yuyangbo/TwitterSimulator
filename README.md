@@ -7,10 +7,10 @@ This project also implemented cryptographic authentication.
 
 #### Table of Contents
 1. [Description](#Description)
-2. [How to Use](#How to Use)
+2. [How to Use](#HowtoUse)
 3. [Work be Done](#Work)
 4. [Performance](#Test)
-5. [Other Info](#Other Info)
+5. [Other Info](#OtherInfo)
 
 <a name="Description"></a>
 
@@ -37,20 +37,24 @@ I. Description
 ### Technic
 
 - Ajax request
+
 - WebSocket
+
 - Akka Actor
+
 - Fsharp, JavaScript
+
 - Public-key Authentication, Digital Sign
+
 - Rest Api
 
-<a name="How to Use"></a>
+  
 
-
+<a name="HowtoUse"></a>
 
 II. How to Use
 ----
-
-#### Use following commands  and run the program
+### Use following commands  and run the program
 
 Note:
 
@@ -77,7 +81,7 @@ for client: just open index.html and have fun!
 
 Note: you need to change the ip address if suave can't bind the port. The code is in the main function in Program.fs and you just need to change the ip and port. If you changed the ip address in server, you need also change the ip in client. These ip addresses are in JavaScript functions in index.html and you can change them by replacing.
 
-#### Nice try
+### Nice try
 
 I have implemented the server along with the client web-site in Tencent cloud remote server on CentOS 7. The basic functions work well but the connection is not stable. I assume it happens because of the limitation of server resources and it comes from internet bandwidth or CPU itself(only has one core and 1G RAM).
 
@@ -334,7 +338,7 @@ It's probably because the computation time period of hashing and SHA-256 is not 
 
 
 
-<a name="Other Info"></a>
+<a name="OtherInfo"></a>
 
 VI. Other Info
 ----
