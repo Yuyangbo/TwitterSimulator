@@ -9,7 +9,7 @@ This project also implemented cryptographic authentication.
 1. [Description](#Description)
 2. [How to Use](#How to Use)
 3. [Work be Done](#Work)
-4. [Results and Performance](#Test)
+4. [Performance](#Test)
 5. [Other Info](#Other Info)
 
 <a name="Description"></a>·
