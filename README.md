@@ -3,13 +3,9 @@ Twitter Simulator is a  Fsharp based project which contains 2 parts, one for Twe
 
 This project also implemented cryptographic authentication.
 
-<iframe 
-    height=450 
-    width=800 
-    src='http://player.youku.com/embed/XMzMxMjE0MjY4NA==' 
-    frameborder=0 
-    'allowfullscreen'>
-</iframe>
+<video id="video" controls="" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
+  <source id="mp4" src="http://gslb.miaopai.com/stream/PAEyMDoxMSB9hV6BVT1l5SHT-sMVVRVgHlL7bA__.mp4?mpflag=64&amp;vend=1&amp;os=3&amp;partner=1&amp;platform=2&amp;cookie_id=&amp;refer=miaopai&amp;scid=PAEyMDoxMSB9hV6BVT1l5SHT-sMVVRVgHlL7bA__ " type="video/mp4">
+</video>
 
 #### Table of Contents
 1. [Description](#Description)
